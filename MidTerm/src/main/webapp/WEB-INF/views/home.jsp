@@ -104,7 +104,7 @@
 </head>
 <body>
     <header>
-        <div>login</div>
+        <div><a href="${pageContext.request.contextPath}/user/userLogin">login</a></div>
         <div><a href="${pageContext.request.contextPath}/user/userJoin">Join</a></div>
     </header>
     <div class="wrapper">

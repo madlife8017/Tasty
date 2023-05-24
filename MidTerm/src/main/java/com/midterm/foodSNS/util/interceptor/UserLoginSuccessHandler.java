@@ -31,10 +31,10 @@ public class UserLoginSuccessHandler implements HandlerInterceptor{
 			//log.info("인터셉터 내부에서 user 확인: " + vo.toString());
 			
 			if(id != null) { //로그인 성공
-				//로그인 성공한 회원에게 세션 데이터를 생성해서 로그인 유지를 하게 해 줌.
+				//로그인 성공한 회원에게 세션 데이터를 생성해서 로그인 유지를 하게 해 줌.				
 				HttpSession session = request.getSession();
 				session.setAttribute("login", id);
-				response.sendRedirect(request.getContextPath() + "/");
+				response.sendRedirect(request.getContextPath() + "/"); //
 				
 			} else { //vo == null -> 로그인 실패
 				modelAndView.addObject("msg", "loginFail");

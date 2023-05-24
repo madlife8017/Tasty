@@ -15,7 +15,7 @@
                     <div class="titlebox">
                         로그인
                     </div>
-                    <form method="post" name="loginForm">
+                   <form method="post" name="loginForm">
                         <div class="form-group"><!--사용자클래스선언-->
                             <label for="id">아이디</label>
                             <input type="text" name="userId" class="form-control" id="id" placeholder="아이디">
@@ -25,10 +25,9 @@
                             <input type="password" name="userPw" class="form-control" id="pw" placeholder="비밀번호">
                          </div>
                          <div class="form-group">
-                            <!-- <button type="button" id="loginBtn" class="btn btn-info btn-block">로그인</button> -->
-                            <a href="${pageContext.request.contextPath}/user/login">로그인</a>
+                            <button type="button" id="loginBtn" class="btn btn-info btn-block">로그인</button>
                             <button type="button" id="joinBtn" class="btn btn-primary btn-block">회원가입</button>
-                         </div>
+                         </div>                                  
                     </form>                
                 </div>
             </div>

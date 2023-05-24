@@ -59,7 +59,7 @@ public class UserController {
 	}
 	
 	//로그인 페이지로 이동 요청
-	@GetMapping("userLogin")
+	@GetMapping("/userLogin")
 	public void userLogin() {}
 	
 	
@@ -67,14 +67,8 @@ public class UserController {
 	@PostMapping("/userLogin")
 	public void login(String userId, String userPw, Model model) {
 		log.info("UserController의 로그인 요청!");
-		model.addAttribute("user", service.login(userId, userPw));
-	}
-	
-
-	
-	
-	
-	
+		model.addAttribute("user", service.login(userId, userPw));		
+	}	
 }
 
 

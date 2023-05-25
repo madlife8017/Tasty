@@ -51,6 +51,7 @@ public class UserService implements IUserService {
 
 	@Override
 	public void updateMusers(MusersVO vo) {
+		mapper.updateMusers(vo);
 	}
 
 	

@@ -50,12 +50,20 @@
 		    f.bno,
 		    f.title,
 		    f.reg_date
-		FROM users u
-		LEFT JOIN freeboard f
+		FROM Musers u
+		LEFT JOIN Mfreeboard f
 		ON u.user_id = f.writer
 		WHERE u.user_id = #{id}
 		ORDER BY f.bno DESC
 		LIMIT #{paging.pageStart}, #{paging.cpp};
 	</select>
+	
+	<update id="updateMusers">
+		UPDATE INTO Musers
+		SET user_name = #{userName}, user_pw = #{userPw}, user_phone1 = #{userPhone1},
+		user_phone2 = #{userPhone2}, user_email1 = #{userEmail1}, user_email2 = {userEmail2},
+		addr_basic = #{addrBasic}, addr_detail = #{addrDetail}, addr_zip_num = #{addrZipNum}
+		WHERE user_id = #{userId}
+	</update>
 
 </mapper>

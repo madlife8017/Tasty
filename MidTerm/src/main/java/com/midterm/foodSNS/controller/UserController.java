@@ -68,7 +68,17 @@ public class UserController {
 	public void login(String userId, String userPw, Model model) {
 		log.info("UserController의 로그인 요청!");
 		model.addAttribute("user", service.login(userId, userPw));		
-	}	
+	}
+	
+	//개인정보 변경 페이지 이동
+	@GetMapping("/userMypage")
+	public void userMypage() {}
+	
+	//개인정보 변경 요청
+	@PostMapping("/userUpdate")
+	public void userUpdate(MusersVO vo) {
+		service.updateMusers(vo);
+	}
 }
 
 

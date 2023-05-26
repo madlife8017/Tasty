@@ -30,7 +30,7 @@
                             <table class="table">
                                 <tbody class="m-control">
                                     <tr>
-                                        <td class="m-title">*ID</td>
+                                        <td class="m-title">ID</td>
                                         <td><input class="form-control input-sm" name="userId"
                                                 value="${login}" readonly></td>
                                     </tr>
@@ -89,7 +89,8 @@
                                         <td class="m-title">*우편번호</td>
                                         <td><input class="form-control input-sm" name="addrZipNum"
                                                 value="${userInfo.addrZipNum}" readonly>
-                                            <button type="button" class="btn btn-primary" id="addBtn">주소찾기</button>
+                                            <button type="button" class="btn btn-primary"
+										onclick="searchAddress()">주소찾기</button>
                                         </td>
                                     </tr>
                                     <tr>

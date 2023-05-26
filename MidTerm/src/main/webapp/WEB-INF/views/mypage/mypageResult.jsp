@@ -119,6 +119,7 @@ a {
 	<div class="wrapper">
 		<div class="header">
 			<div class="title">요리제목</div>
+			<a href="${pageContext.request.contextPath}/user/userMypage">개인정보 수정</a>
 		</div>
 		<div id="modalWrapper" class="resultWrapper">
 			<div class="result">

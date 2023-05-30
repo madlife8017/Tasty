@@ -33,10 +33,20 @@ public class MyPageController {
 		MusersVO vo = new MusersVO();		
 		HttpSession session = request.getSession();
 		vo = (MusersVO) session.getAttribute("login");
+
+		
 		List<MfreeboardArticleVO> articleList = new ArrayList<>();		
 		articleList = service.getArticleList(vo.getUserId());
-		log.info("sss: "+articleList.toString());
+		
+		//List<MfreeboardImgVO> imgList = new ArrayList<>();		
+		//imgList = service.getImgList(vo.getUserId());
+		
+		//log.info("eeeee"+imgList.toString());
+		
+		
 		model.addAttribute("article",articleList);
+		//model.addAttribute("img",imgList);
+
 		return "mypage/mypageResult";	
 	}
 	

@@ -23,6 +23,21 @@ public interface IUserService {
 		//회원 정보 얻어오기
 		MusersVO getInfo(MusersVO vo);
 				
+		
+		
+		
+		
+		
+		//회원 정보 탈퇴
+		void userDelete(MusersVO vo);
+		
+		//회원 정보 탈퇴를 위한 비밀번호 비교
+		public int passChk(String pwinput,MusersVO vo) throws Exception;
+		
+		
+		
+		
+		
 		//회원 정보 수정
 		void updateMusers(MusersVO vo);
 		

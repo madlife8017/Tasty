@@ -24,6 +24,17 @@ public interface IUserMapper {
 	MusersVO getInfo(MusersVO vo);
 	
 	
+	
+	
+	//회원 정보 탈퇴
+	void userDelete(MusersVO vo);
+	
+	//회원 정보 탈퇴를 위한 비밀번호 비교
+	int passChk(String pwinput) throws Exception;
+	
+	
+	
+	
 	//회원 정보 수정
 	void updateMusers(MusersVO vo);
 	

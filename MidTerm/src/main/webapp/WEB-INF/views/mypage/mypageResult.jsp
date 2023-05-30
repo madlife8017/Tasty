@@ -28,6 +28,18 @@
 
 
 		<div id="main">
+		   <%
+         ArrayList<MfreeboardArticleVO> articles = new ArrayList<>();
+         articles = (ArrayList<MfreeboardArticleVO>) request.getAttribute("article");
+         for (int i = 0; i < articles.size(); i++) {
+         %>
+         <div class="boxbox" data-bs-toggle="modal" data-userid="${login.userId}"
+            data-fanum="<%=articles.get(i).getFreeboardArticleNumber()%>" data-bs-target="#myModal">
+            <%=articles.get(i).getContent()%>
+         </div>
+         <%
+         }
+         %>
 
 
 			<%

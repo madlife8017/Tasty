@@ -53,10 +53,16 @@
 				<div class="form-group has-feedback">*상세주소</div>
 				<input class="form-control input-sm add" name="addrDetail" id="addrDetail" value="${userInfo.addrDetail}">
 				<div class="form-group has-feedback">
-					<button class="btn btn-success" type="button" id="updateBtn">수정</button>
+
+					<button class="btn btn-success" type="submit" id="submit">수정</button>
 					<button class="cencle btn btn-danger" type="button">취소</button>
 				</div>
 			</form>
+			<div>
+				<c:if test="${msg == false}">
+					비밀번호가 맞지 않습니다.
+				</c:if>
+			</div>
 
 		</section>
 		
@@ -65,6 +71,27 @@
 	<script	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 	<script type="text/javascript">
+
+		$(document).ready(function(){
+			// 취소
+			$(".cencle").on("click", function(){
+				
+				location.href = "/";
+						    
+			})
+		
+			$("#submit").on("click", function(){
+				if($("#userPass").val()==""){
+					alert("비밀번호를 입력해주세요.");
+					$("#userPass").focus();
+					return false;
+				}	
+			});
+			
+				
+			
+		})
+
 		
 		//폼 데이터 검증 (수정 버튼을 눌렀을 때)
 		document.getElementById('updateBtn').onclick = function(){
@@ -94,10 +121,12 @@
 			
 			
 		}
+
 		//취소 버튼
 		document.querySelector('.cencle').addEventListener('click' ,() => {
 			location.href = "${pageContext.request.contextPath}/user/userMypage"
 		});
+
 		//주소 API
 		function searchAddress() { 
 		    new daum.Postcode({

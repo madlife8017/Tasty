@@ -73,6 +73,7 @@ aside {
 #logo {
 	box-sizing: border-box;
 	width: 100%;
+<<<<<<< HEAD
 	height: 10vh;
 	/* border: 1px solid green; */
 }
@@ -194,3 +195,75 @@ h5{
 
 
 
+=======
+	height: 20vh;
+	border: 1px solid green;
+}
+
+#menu {
+	box-sizing: border-box;
+	width: 100%;
+	height: 50vh;
+	border: 1px solid green;
+	border-radius: 30px;
+	padding-top: 20px;
+}
+
+#menu ul {
+	margin: 20px auto;
+	box-sizing: border-box;
+	width: 70%;
+	border: 1px solid red;
+}
+
+#menu ul li {
+	box-sizing: border-box;
+	font-size: 30px;
+	border: 1px solid blue;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+#searchInfo {
+	box-sizing: border-box;
+	width: 35%;
+	height: 60px;
+	border: 1px solid red;
+	position: absolute;
+	top: 50%;
+	margin-top: -30px;
+	border-radius: 30px;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+select {
+	width: 25%;
+}
+
+button {
+	width: 70px;
+	height: 60px;
+	position: absolute;
+	top: 50%;
+	left: 103%;
+	margin-top: -30px;
+}
+
+#category {
+	width: 700px;
+	height: 60px;
+	position: absolute;
+	top: 50%;
+	left: 80%;
+	margin-top: -30px;
+	font-size: 20px;
+	line-height: 90px;
+}
+
+a {
+
+	text-decoration: none;
+	cursor: pointer;
+}
+>>>>>>> 8869fd4b10ba24e003ead15fee66d851a332df80

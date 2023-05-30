@@ -68,6 +68,22 @@
 	</select>
 
 
+	<!-- 회원 탈퇴를 위한 비밀번호 체크 -->
+	<select id="passChk" resultType="int">
+	SELECT COUNT(*) FROM Musers
+	WHERE user_id = #{userId}
+	 AND user_pw = #{userPw}
+	</select> 
+
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="userDelete">
+	DELETE FROM Musers
+	WHERE user_id = #{userId}
+	</delete> 
+
+
+
 	<update id="profilemodify">
 		UPDATE Musers
 		SET upload_path = #{uploadPath},

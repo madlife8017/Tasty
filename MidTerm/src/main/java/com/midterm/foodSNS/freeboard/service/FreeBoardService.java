@@ -100,17 +100,13 @@ public class FreeBoardService implements IFreeBoardService {
 	}
 
 	@Override
-
 	public MfreeboardArticleVO getContent(int bno) {
-
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-
 	public void update(MfreeboardArticleVO vo) {
-
 		// TODO Auto-generated method stub
 		
 	}

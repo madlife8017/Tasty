@@ -15,19 +15,21 @@
 		<result property="addrZipNum" column="addr_zip_num" />
 		<collection property="userBoardList" resultMap="list" />
 	</resultMap>
+	
+	<resultMap type="board" id="list">
+		<id property="bno" column="bno"/>
+		<result property="title" column="title"/>
+		<result property="regDate" column="reg_date"/>
+	</resultMap>
 
 
 
 	<insert id="join">
 		INSERT INTO Musers
-		(user_id, user_pw, user_phone1,
-		user_phone2, user_email1,
-		user_email2, addr_basic, addr_detail,
-		addr_zip_num)
-		VALUES(#{userId}, #{userPw}, #{userPhone1},
-		#{userPhone2}, #{userEmail1},
-		#{userEmail2}, #{addrBasic},
-		#{addrDetail}, #{addrZipNum})
+		(user_id, user_pw, user_phone1, user_phone2, user_email1,
+		user_email2, addr_basic, addr_detail, addr_zip_num)
+		VALUES(#{userId}, #{userPw}, #{userPhone1}, #{userPhone2}, #{userEmail1},
+		#{userEmail2}, #{addrBasic}, #{addrDetail}, #{addrZipNum})
 	</insert>
 
 
@@ -44,11 +46,9 @@
 
 	<select id="getInfo" resultMap="userMap">
 		SELECT
-		user_name, user_phone1,
-		user_phone2,
+		user_name, user_phone1, user_phone2,
 		user_email1, user_email2, addr_basic,
-		addr_detail,
-		addr_zip_num,
+		addr_detail, addr_zip_num,
 		f.bno,
 		f.title,
 		f.reg_date
@@ -58,15 +58,13 @@
 		WHERE
 		u.user_id = #{id}
 		ORDER BY f.bno DESC
-		LIMIT
-		#{paging.pageStart},
+		LIMIT #{paging.pageStart},
 		#{paging.cpp};
 	</select>
-
+	
 	<select id="userInfo" resultType="user">
 		SELECT * FROM Musers
-		WHERE
-		user_id = #{id}
+		WHERE user_id = #{id}
 	</select>
 
 
@@ -75,29 +73,41 @@
 		SET upload_path = #{uploadPath},
 		file_loca = #{fileLoca},
 		file_name = #{fileName},
-		file_real_name =
-		#{fileRealName},
+		file_real_name = #{fileRealName},
 		user_nick=#{userNick},
-		message=#{message}
-		WHERE user_id
-		= #{userId}
+		message=#{message}		
+		WHERE user_id = #{userId}	
 	</update>
-
-
-	<insert id="dbRegist">
-		INSERT INTO cookDB
-			(foodname,titleimg,ingredient,tip,text1,text2,text3,text4,
-			img1,img2,img3,img4)
-		VALUES(#{foodname},#{titleimg},#{ingredient},#{tip},
-		#{text1},#{text2},#{text3},#{text4},
-			#{img1},#{img2},#{img3},#{img4})
+	
+	<update id="updateMusers">
+		UPDATE Musers
+		SET user_name = #{userName}, user_pw = #{userPw}, user_phone1 = #{userPhone1},
+		user_phone2 = #{userPhone2}, user_email1 = #{userEmail1}, user_email2 = #{userEmail2},
+		addr_basic = #{addrBasic}, addr_detail = #{addrDetail}, addr_zip_num = #{addrZipNum}
+		WHERE user_id = #{userId}
+	</update>
+	
+	<delete id="deleteMusers">
+		DELETE FROM Musers
+		WHERE user_id = #{userId}
+	</delete>
+	
+	<insert id="test">
+		INSERT INTO FreeboardArticle
+		(user_id , content)
+		VALUES(#{writer}, #{content})
 	</insert>
 
-
-
-
-
-
+	<select id="load" resultType="img">
+		SELECT * FROM FreeboardImg
+		WHERE freeboard_img_number = #{fiNum}
+	</select>
+	
+	<insert id="registImg">
+		INSERT INTO FreeboardImg
+		(free_board_article_number, upload_path, file_loca, file_name, file_real_name)
+		VALUES (#{freeboardArticleNumber}, #{uploadPath},#{fileLoca},#{fileName},#{fileRealName})
+	</insert>
 
 
 </mapper>

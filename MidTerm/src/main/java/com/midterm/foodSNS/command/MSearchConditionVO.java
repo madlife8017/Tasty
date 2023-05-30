@@ -10,8 +10,8 @@ import lombok.ToString;
 public class MSearchConditionVO {
 	
 	private String weather; 
-	private String condition2; 
+	private String condition; 
 	private String feeling;
-	private String listCodition = "total";
+	private String listCodtion = "total";
 
 }

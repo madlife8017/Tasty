@@ -10,10 +10,6 @@
 		WHERE user_id = #{userId}
 	</select>	
 	
-	<select id="getImgList" resultType="articleImg">
-		SELECT * FROM FreeboardImg
-	</select>
-	
 	
 </mapper>
 		

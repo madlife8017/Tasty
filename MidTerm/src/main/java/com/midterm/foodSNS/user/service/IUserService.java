@@ -1,8 +1,11 @@
 package com.midterm.foodSNS.user.service;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.midterm.foodSNS.command.MfreeboardImgVO;
 import com.midterm.foodSNS.command.MusersVO;
 
 
@@ -26,5 +29,14 @@ public interface IUserService {
 		void profilemodify(MusersVO vo, MultipartFile file);
 		
 		MusersVO userInfo(@Param("id")String id);
+		
+		//회원 탈퇴
+		void deleteMusers(MusersVO vo);
+
+
+		MfreeboardImgVO registImg(MfreeboardImgVO ivo, MultipartFile file);
+
+		MfreeboardImgVO load(int fiNum);
+		
 	
 }

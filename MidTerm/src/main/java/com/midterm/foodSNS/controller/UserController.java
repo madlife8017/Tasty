@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.midterm.foodSNS.command.MfreeboardArticleVO;
+import com.midterm.foodSNS.command.MfreeboardImgVO;
 import com.midterm.foodSNS.command.MusersVO;
 import com.midterm.foodSNS.user.service.IUserService;
 import com.midterm.foodSNS.util.interceptor.MailSenderService;
@@ -35,16 +37,16 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/user")
 @Slf4j
 public class UserController {
-	
+
 	@Autowired
 	private IUserService service;
 	@Autowired
 	private MailSenderService mailService;
-	
+
 	//회원가입 페이지로 이동
 	@GetMapping("/userJoin")
 	public void userJoin() {}
-	
+
 	//아이디 중복 확인
 	@ResponseBody //비동기
 	@PostMapping("/idCheck")
@@ -53,7 +55,7 @@ public class UserController {
 		if(service.idCheck(userId) == 1) return "duplicated"; //중복일 경우 "duplicated"를 전달
 		else return "ok"; //중복이 아닐경우 "ok"를 전달
 	}
-	
+
 	//회원 가입 처리
 	@PostMapping("/userJoin")
 	public String userJoin(MusersVO vo, RedirectAttributes ra) {
@@ -61,7 +63,7 @@ public class UserController {
 		ra.addFlashAttribute("msg", "joinSuccess");
 		return "redirect:/user/userLogin";
 	}
-	
+
 	//이메일 인증
 	@ResponseBody//비동기
 	@GetMapping("/mailCheck")
@@ -70,24 +72,24 @@ public class UserController {
 		mailService.joinEmail(email);
 		return mailService.joinEmail(email);
 	}
-	
+
 	//로그인 페이지로 이동 요청
 	@GetMapping("/userLogin")
 	public void userLogin() {}
-	
-	
+
+
 	//로그인 요청
 	@PostMapping("/userLogin")
 	public void login(String userId, String userPw, Model model) {
 		log.info("UserController의 로그인 요청!");
 		model.addAttribute("user", service.userInfo(userId));
 	}
-	
+
 	//프로필수정페이지이동
 	@GetMapping("/userProfileModify")
 	public String profileModify() {
 		return "user/userProfileModify";
-		
+
 	}
 	//프로필수정처리
 	@PostMapping("/userProfileModify")
@@ -98,7 +100,7 @@ public class UserController {
 		model.addAttribute("user", service.userInfo(vo.getUserId()));		
 		return "redirect:/mypage/mypageResult";
 	}
-	
+
 	@GetMapping("/display/{fileLoca}/{fileName}")
 	public ResponseEntity<byte[]> getFile(@PathVariable String fileLoca,
 			@PathVariable String fileName){		
@@ -122,15 +124,85 @@ public class UserController {
 		}	
 		return result;
 	}
-	
+
 	@ResponseBody
 	@GetMapping("/getArticle/{userId}")
 	public MusersVO getArticle(@PathVariable String userId){
 		return service.userInfo(userId);		
 	}
+
+	//개인정보 페이지 이동
+	@GetMapping("/userMypage")
+	public void userMypage(HttpSession session, Model model) {
+		MusersVO vo = (MusersVO) session.getAttribute("login");
+		log.info(vo.toString());
+		model.addAttribute("userInfo", service.userInfo(vo.getUserId()));
+	}
 	
+	//개인정보 변경 페이지 이동
+	@GetMapping("userUpdate")
+	public void userUpdate(HttpSession session, Model model) {
+		MusersVO vo = (MusersVO) session.getAttribute("login");
+		model.addAttribute("userInfo", service.userInfo(vo.getUserId()));
+	}
+
+	//개인정보 변경 요청
+	@PostMapping("/userUpdate")
+	public String userUpdate(MusersVO vo) {
+		service.updateMusers(vo);
+		return "redirect:/user/userMypage";
+	}
 	
+	//회원 탈퇴 요청
+	@GetMapping("/userDelete")
+	public void delete(HttpSession session, Model model) {
+		MusersVO vo = (MusersVO) session.getAttribute("login");
+		model.addAttribute("userInfo", service.userInfo(vo.getUserId()));
+	}
+	
+	//회원 탈퇴
+	@PostMapping("/userDelete")
+	public String userDelte(MusersVO vo) {
+		if(service.login(vo.getUserId(), vo.getUserPw())== null) {
+			return null;
+		} else {
+			service.deleteMusers(vo);
+			return "delSuccess";
+		}
+	}
+	@GetMapping("/test")
+	public void test() {}
+	
+	@PostMapping("/test")
+	public String test(MfreeboardArticleVO vo) {
+		log.info("content" +  vo.getContent());
+		return "redirect:/mypage/mypageResult";
+	}
+
+	@PostMapping("/img")
+	@ResponseBody
+	 public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file, MfreeboardImgVO ivo) {
+		
+		MfreeboardImgVO uploadImg = service.registImg(ivo ,file);
+		return ResponseEntity.ok().body("/image/" + uploadImg.getFiNum());
+	}
+	
+	@GetMapping("/image/{fiNum}")
+	@ResponseBody
+	public ResponseEntity<?> serveImg(@PathVariable int fiNum) {
+		try {
+			MfreeboardImgVO uploadedFile = service.load(fiNum);
+			String fileName = uploadedFile.getUploadPath() + uploadedFile.getFileLoca() + "/" + uploadedFile.getFileName();
+			HttpHeaders headers = new HttpHeaders();
+			headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + new String(fileName.getBytes("UTF-8"), "ISO-8859-1") + "\"");
+			headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+			return ResponseEntity.ok().headers(headers).body(fileName);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 }
 
 
-	

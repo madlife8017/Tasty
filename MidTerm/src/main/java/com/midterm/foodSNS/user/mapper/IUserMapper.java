@@ -2,9 +2,9 @@ package com.midterm.foodSNS.user.mapper;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.midterm.foodSNS.command.MfreeboardImgVO;
+import com.midterm.foodSNS.command.MfreeboardVO;
 import com.midterm.foodSNS.command.MusersVO;
-import com.midterm.foodSNS.util.MDBVO;
-import com.midterm.foodSNS.util.MDBVOList;
 
 public interface IUserMapper {
 
@@ -31,6 +31,14 @@ public interface IUserMapper {
 	void profilemodify(MusersVO vo);
 
 	MusersVO userInfo(String id);
+	
+	//회원 탈퇴
+	void deleteMusers(MusersVO vo);
 
-	void dbRegist(MDBVOList responseData);
+	
+	void registImg(MfreeboardImgVO vo);
+
+	MfreeboardImgVO load(int fiNum);
+
+
 }

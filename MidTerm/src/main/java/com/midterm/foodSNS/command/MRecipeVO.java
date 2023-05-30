@@ -24,31 +24,13 @@ import lombok.ToString;
 @ToString
 public class MRecipeVO {
 	
-	private int cooknum;
-	
-	private String foodname; //요리제목
-	private String titleimg; //대표이미지
-	private String ingredient; //필요재료
-	private String tip; //음식팁
-
-	//조리 설명
-
-	private String text1;
-	private String text2;
-	private String text3;
-	private String text4;
-
-
-	//조리이미지
-	private String img1;
-	private String img2;
-	private String img3;
-	private String img4;
-	
-	//조건
-	private String weather;
-	private String condition2;
-	private String feeling;
-	
+	private int rno;
+	private LocalDateTime updateDate;
+	private String title;
+	private String writer;
+	private String ingredient;
+	private String recipe;
+	private LocalDateTime regDate;
+	private int likeNum;
 
 }

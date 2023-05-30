@@ -22,6 +22,7 @@
 			</table>
 			<div class="titlefoot">
 				<button class="btn" type="submit">등록</button>
+				<button class="btn" type="button" id="cancle">취소</button>
 			</div>
 		</form>
 	</div>

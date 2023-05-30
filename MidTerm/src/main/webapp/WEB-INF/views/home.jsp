@@ -13,9 +13,93 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
 
-<link href="${pageContext.request.contextPath}/css/home.css" rel="stylesheet">
+<!-- custom css -->
+<!--    <link rel="stylesheet" href="./home.css">-->
 
+<style>
+.wrapper {
+	box-sizing: border-box;
+	width: 50%;
+	height: 75vh;
+	border: 1px solid blue;
+	margin: 0 auto;
+}
 
+.wrapper .title {
+	margin: 0 auto;
+	margin-top: 100px;
+	width: 100%;
+	height: 300px;
+	border: 1px solid red;
+	text-align: center;
+	font-size: 100px;
+	line-height: 300px;
+}
+
+.wrapper .selectWrapper {
+	width: 100%;
+	height: 100px;
+	margin-top: 20px;
+	border: 1px solid red;
+	display: flex;
+	justify-content: space-between;
+}
+
+select {
+	box-sizing: border-box;
+	width: 33%;
+	height: 100px;
+	font-size: 30px;
+	text-align: center;
+	border-radius: 10px;
+}
+
+button {
+	display: block;
+	width: 30%;
+	font-size: 30px;
+	height: 60px;
+	border-radius: 10px;
+	margin: 40px auto;
+}
+
+header {
+	box-sizing: border-box;
+	width: 100%;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	height: 10vh;
+	border: 1px solid green;
+	padding-right: 30px;
+}
+
+header div {
+	font-size: 30px;
+	width: 10%;
+	height: 40px;
+	border: 1px solid red;
+	text-align: center;
+	margin: 10px;
+}
+
+footer {
+	box-sizing: border-box;
+	width: 100%;
+	height: 15vh;
+	/* footer의 높이 */
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border: 1px solid green;
+	text-align: center;
+	line-height: 150px;
+}
+
+a {
+	text-decoration: none;
+}
+</style>
 </head>
 <body>
 	<header>
@@ -26,13 +110,11 @@
 			<div>
 				<a href="${pageContext.request.contextPath}/user/userJoin">Join</a>
 			</div>
-			<div><a href="${pageContext.request.contextPath}/result/getDB">DB가져오기</a></div>
 		</c:if>
 		<c:if test="${login != null}">
 			${login.userId}님 환영합니다!
-			<div><a href="">MyPage</a></div>
+			<div><a href="${pageContext.request.contextPath}/user/userMypage">MyPage</a></div>
 			<div><a href="${pageContext.request.contextPath}/user/userLogout">Logout</a></div>
-			
 		</c:if>
 
 	</header>

@@ -45,10 +45,12 @@ public class ResultService implements IResultService {
 		log.info("vo=" + vo.toString());
 		if(mapper.chkLike(vo) == 1) { //이 회원이 좋아요를 이미 눌렀는지 확인
 			mapper.deleteLike(vo); // 좋아요를 눌렀다면 좋아요 취소
+			vo.setUserId("1");
 		} else {
 			mapper.insertLike(vo); // 좋아요를 누르지 않은 상태면 추가
+			vo.setUserId("0");
 		}
-		return null;
+		return vo;
 	}
 
 }

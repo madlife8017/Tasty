@@ -4,6 +4,7 @@ import java.io.File;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-
+import com.midterm.foodSNS.command.MfreeboardArticleVO;
+import com.midterm.foodSNS.command.MfreeboardVO;
 import com.midterm.foodSNS.command.MusersVO;
 import com.midterm.foodSNS.user.mapper.IUserMapper;
+import com.midterm.foodSNS.util.PageVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -150,5 +153,16 @@ public class UserService implements IUserService {
         log.info("오냐"+vo.toString());
         mapper.profilemodify(vo);
 		
+	}
+	
+	@Override
+	public void test(MfreeboardVO vo) {
+		mapper.test(vo);
+		
+	}
+	
+	@Override
+	public List<MfreeboardVO> getList(PageVO vo) {
+		return mapper.getList(vo);
 	}
 }

@@ -87,7 +87,7 @@
 								</li>
 								<li class="nav-item"><a class="nav-link" href="#">Follow
 										Chief</a></li>
-								<li class="nav-item"><a class="nav-link" href="#">Add
+								<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/freeboard/uploadRecipe">Add
 										My Recipe</a></li>
 								<li class="nav-item"><a class="nav-link"
 										href="${pageContext.request.contextPath}/freeboard/regist">Add
@@ -242,22 +242,28 @@
 		e.preventDefault();
 		const cooknum = document.getElementById('likenum').dataset.cooknum;
 		console.log(cooknum);
-		const userId = '${login.userId}'
-		console.log(userId);
+
 		const reqObj = {
 			method: 'put',
 			headers: {
 				'Content-Type' : 'application/json'
 			},
 			body: JSON.stringify({
-				'userId' : userId
+				'userId' : '${login.userId}' 
 			})
 		}
 		fetch('${pageContext.request.contextPath}/result/recipe/like/' + cooknum, reqObj)
-			.then(res => res.text())
+			.then(res => res.json())
 			.then(data => {
 				console.log(data);
+				console.log(data.likenum);
 				document.getElementById('likenum').textContent = data.likenum;
+				console.log(data.userId);
+				if(data.userId == 0) { //좋아요 클릭 하지 않은 상태일때
+					document.getElementById('likeBtn').style.backgroundColor = 'blue';
+				} else {
+					document.getElementById('likeBtn').style.backgroundColor = '#fff';
+				}
 				getlike(cooknum);
 			});
 	});

@@ -1,9 +1,14 @@
 package com.midterm.foodSNS.user.service;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.midterm.foodSNS.command.MfreeboardArticleVO;
+import com.midterm.foodSNS.command.MfreeboardVO;
 import com.midterm.foodSNS.command.MusersVO;
+import com.midterm.foodSNS.util.PageVO;
 
 
 public interface IUserService {
@@ -41,5 +46,9 @@ public interface IUserService {
 		void profilemodify(MusersVO vo, MultipartFile file);
 		
 		MusersVO userInfo(@Param("id")String id);
+
+		void test(MfreeboardVO vo);
+
+		List<MfreeboardVO> getList(PageVO vo);
 	
 }

@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.midterm.foodSNS.command.MfreeboardArticleVO;
 import com.midterm.foodSNS.command.MfreeboardImgVO;
+import com.midterm.foodSNS.command.MfreeboardVO;
 import com.midterm.foodSNS.freeboard.service.IFreeBoardService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -78,6 +79,17 @@ public class FreeBoardController {
 		
 		 return "freeboard/modify";
 	}
+	
+	@GetMapping("uploadRecipe")
+	public void uploadRecipe() {}
+	
+	@PostMapping("uploadRecipe")
+	public String uploadRecipe(MfreeboardVO vo) {
+		service.uploadRecipe(vo);
+		
+		return "freeboard/recipeList";
+	}
+	
 	
 	
 	

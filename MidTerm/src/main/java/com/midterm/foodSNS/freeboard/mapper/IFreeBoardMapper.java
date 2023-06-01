@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.midterm.foodSNS.command.MfreeboardArticleVO;
 import com.midterm.foodSNS.command.MfreeboardImgVO;
+import com.midterm.foodSNS.command.MfreeboardVO;
 
 public interface IFreeBoardMapper {
 	
@@ -23,6 +24,9 @@ public interface IFreeBoardMapper {
 	void delete(int faNum);
 
 	void deleteimg(int iNum);
+
+	//레시피 등록
+	void uploadRecipe(MfreeboardVO vo);
 
 
 }

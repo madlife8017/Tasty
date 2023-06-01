@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.midterm.foodSNS.command.MfreeboardArticleVO;
 import com.midterm.foodSNS.command.MfreeboardImgVO;
+import com.midterm.foodSNS.command.MfreeboardVO;
 import com.midterm.foodSNS.freeboard.mapper.IFreeBoardMapper;
 import com.midterm.foodSNS.util.PageVO;
 
@@ -121,6 +122,12 @@ public class FreeBoardService implements IFreeBoardService {
 	public void update(MfreeboardArticleVO vo) {
 
 		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void uploadRecipe(MfreeboardVO vo) {
+		mapper.uploadRecipe(vo);
 		
 	}
 

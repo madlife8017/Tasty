@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -34,9 +35,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.midterm.foodSNS.command.MKakaoUserVO;
 
 import com.midterm.foodSNS.command.MfreeboardArticleVO;
+import com.midterm.foodSNS.command.MfreeboardVO;
 import com.midterm.foodSNS.command.MusersVO;
 import com.midterm.foodSNS.user.service.IUserService;
 import com.midterm.foodSNS.util.KakaoService;
+import com.midterm.foodSNS.util.PageVO;
 import com.midterm.foodSNS.util.interceptor.MailSenderService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -244,17 +247,24 @@ public class UserController {
 	}
 	
 	@GetMapping("/test")
-	public void move(){	
-		
-		
-	}
+	public void test() {}
+	
 	@PostMapping("/test")
-	public void move(String content){
-		
-		log.info(content);
-		
-		
+	public String test(MfreeboardVO vo) {
+		log.info("content" +  vo.getContent());
+		service.test(vo);
+		return "redirect:/mypage/mypageResult";
 	}
+	
+	@GetMapping("/test/{page}")
+	@ResponseBody()
+	public List<MfreeboardVO> getList (@PathVariable int page) {
+		PageVO vo = new PageVO();
+		vo.setPageNum(page);
+		return service.getList(vo);
+	}
+		
+	
 	
 	
 	

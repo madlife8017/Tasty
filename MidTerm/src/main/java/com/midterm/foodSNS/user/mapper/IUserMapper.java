@@ -1,10 +1,15 @@
 package com.midterm.foodSNS.user.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
+import com.midterm.foodSNS.command.MfreeboardArticleVO;
+import com.midterm.foodSNS.command.MfreeboardVO;
 import com.midterm.foodSNS.command.MusersVO;
 import com.midterm.foodSNS.util.MDBVO;
 import com.midterm.foodSNS.util.MDBVOList;
+import com.midterm.foodSNS.util.PageVO;
 
 public interface IUserMapper {
 
@@ -44,4 +49,10 @@ public interface IUserMapper {
 	MusersVO userInfo(String id);
 
 	void dbRegist(MDBVOList responseData);
+
+	//게시글 작성
+	void test(MfreeboardVO vo);
+	
+	//게시판 list 받아오기
+	List<MfreeboardVO> getList(PageVO vo);
 }

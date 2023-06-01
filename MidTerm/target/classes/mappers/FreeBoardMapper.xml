@@ -33,6 +33,17 @@
 		delete from FreeboardImg where freeboard_img_number =#{imgNum}
 	</delete>
 	
+	<insert id="uploadRecipe">
+		INSERT INTO test
+		(title, content, writer)
+		VALUES (#{title}, #{content}, #{writer})
+	</insert>
+	
+	<select id="getListRecipe" resultType="board">
+		SELECT * FROM test
+		ORDER BY bno DESC
+	</select>
+	
 	
 
 </mapper>

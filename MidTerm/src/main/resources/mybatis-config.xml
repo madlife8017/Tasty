@@ -28,6 +28,7 @@
 		<typeAlias type="com.midterm.foodSNS.command.MfreeboardArticleVO" alias="article" />
 		<typeAlias type="com.midterm.foodSNS.command.MfreeboardImgVO" alias="articleImg" />
 		<typeAlias type="com.midterm.foodSNS.command.MRecipeVO" alias="recipe" />
+		<typeAlias type="com.midterm.foodSNS.command.MfreeboardVO" alias="board" />
 		<typeAlias type="com.midterm.foodSNS.command.LikeVO" alias="like" />
 		<!-- <typeAlias type="com.spring.myweb.command.ReplyVO" alias="reply" /> -->
 	</typeAliases>

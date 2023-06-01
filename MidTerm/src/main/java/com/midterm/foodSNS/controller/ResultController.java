@@ -76,6 +76,8 @@ public class ResultController {
 	@PutMapping("/recipe/like/{cooknum}")
 	@ResponseBody
 	public LikeVO updateLike(@PathVariable int cooknum, @RequestBody LikeVO vo) {
-		return service.updateLike(cooknum, vo);
+		LikeVO vos = service.updateLike(cooknum, vo);
+		log.info(vos.toString());
+		return vos;
 	}
 }

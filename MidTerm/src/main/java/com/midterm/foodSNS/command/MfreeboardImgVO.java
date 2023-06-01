@@ -24,8 +24,8 @@ freeboard_img_number INT PRIMARY KEY AUTO_INCREMENT,
 @ToString
 public class MfreeboardImgVO {
 	
-	private int fiNum;
-	private int faNum;
+	private int freeboardImgNumber;
+	private int freeboardArticleNumber;
 	private String uploadPath;
 	private String fileLoca;
 	private String fileName;

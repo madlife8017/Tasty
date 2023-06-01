@@ -28,6 +28,11 @@ public class MfreeboardArticleVO {
 	private int freeboardArticleNumber;
 	private String userId;
 	private String content;
+	
+	private String uploadPath;
+	private String fileLoca;
+	private String fileName;
+	private String fileRealName;
 
 
 }

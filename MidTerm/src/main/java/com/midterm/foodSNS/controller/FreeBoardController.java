@@ -49,6 +49,15 @@ public class FreeBoardController {
 		return service.getArticle(faNum);		
 	}
 	
+	@ResponseBody
+	@GetMapping("/getCarousel/{faNum}")
+	public List<MfreeboardImgVO> getCarousel(@PathVariable int faNum){
+		log.info("eee"+faNum);
+		log.info("dddd"+service.getCarousel(faNum).toString());
+		
+		return 	service.getCarousel(faNum);
+	}
+	
 	
 
 }

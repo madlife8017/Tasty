@@ -1,5 +1,7 @@
 package com.midterm.foodSNS.user.service;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,19 +23,11 @@ public interface IUserService {
 		MusersVO getInfo(MusersVO vo);
 				
 		
-		
-		
-		
-		
 		//회원 정보 탈퇴
 		void userDelete(MusersVO vo);
 		
 		//회원 정보 탈퇴를 위한 비밀번호 비교
 		public int passChk(String pwinput,MusersVO vo) throws Exception;
-		
-		
-		
-		
 		
 		//회원 정보 수정
 		void updateMusers(MusersVO vo);
@@ -41,5 +35,9 @@ public interface IUserService {
 		void profilemodify(MusersVO vo, MultipartFile file);
 		
 		MusersVO userInfo(@Param("id")String id);
+		
+		
+		//로그아웃
+		void userLogout(HttpSession session);
 	
 }

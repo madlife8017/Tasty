@@ -19,6 +19,7 @@ public class SnsBoardController {
 	@Autowired
 	private ISnsBoardService service;
 	
+	//이미지 파일 업로드 요청
 	@PostMapping("/upload")
 	public void upload(MSnsBoardVO vo, MultipartFile file) {service.insert (vo, file);}
 

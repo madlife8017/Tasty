@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 
 <head>
@@ -13,10 +13,14 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
 
-<link href="${pageContext.request.contextPath}/css/home.css" rel="stylesheet">
-
-
+<link href="${pageContext.request.contextPath}/css/home.css"
+	rel="stylesheet">
 </head>
+
+
+
+
+
 <body>
 	<header>
 		<c:if test="${login == null}">
@@ -26,16 +30,35 @@
 			<div>
 				<a href="${pageContext.request.contextPath}/user/userJoin">Join</a>
 			</div>
-			<div><a href="${pageContext.request.contextPath}/result/getDB">DB가져오기</a></div>
+			<div>
+				<a href="${pageContext.request.contextPath}/result/getDB">DB가져오기</a>
+			</div>
 		</c:if>
 		<c:if test="${login != null}">
 			${login.userId}님 환영합니다!
-			<div><a href="${pageContext.request.contextPath}/user/userMypage">MyPage</a></div>
-			<div><a href="${pageContext.request.contextPath}/user/userLogout">Logout</a></div>
-			
+			<div>
+				<a href="${pageContext.request.contextPath}/user/userMypage">MyPage</a>
+			</div>
+
+		   <%--  <div>
+			<a href="${pageContext.request.contextPath}/user/userLogout">Logout</a>
+			</div>   --%>
+
+		    <form action="${pageContext.request.contextPath}/user/userLogout" method="post">
+				<button type="submit" id="logoutBtn">로그아웃</button>
+			</form> 
+
+
 		</c:if>
 
+
+
+
+
+
 	</header>
+
+
 	<div class="wrapper">
 		<div class="title">Tasty Friends</div>
 		<form action="${pageContext.request.contextPath}/result/mainResult"
@@ -67,4 +90,14 @@
 	<footer> copyright © TastyFriends. all rights reserved </footer>
 </body>
 
+<script type="text/javascript">
+	document.getElementById('logoutBtn').onclick = () => {
+		alert('LOGOUT');
+	}
+</script>
+
 </html>
+
+
+
+

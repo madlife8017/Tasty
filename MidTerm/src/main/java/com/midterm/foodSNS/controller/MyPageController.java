@@ -38,14 +38,14 @@ public class MyPageController {
 		List<MfreeboardArticleVO> articleList = new ArrayList<>();		
 		articleList = service.getArticleList(vo.getUserId());
 		
-		//List<MfreeboardImgVO> imgList = new ArrayList<>();		
-		//imgList = service.getImgList(vo.getUserId());
+		List<MfreeboardImgVO> imgList = new ArrayList<>();		
+	imgList = service.getImgList(vo.getUserId());
 		
-		//log.info("eeeee"+imgList.toString());
+		log.info("eeeee"+imgList.toString());		
 		
 		
 		model.addAttribute("article",articleList);
-		//model.addAttribute("img",imgList);
+		model.addAttribute("img",imgList);
 		return "mypage/mypageResult";	
 	}
 	

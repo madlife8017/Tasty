@@ -52,11 +52,11 @@
 
 .boxbox img{
 	
-	width:100%;
-	border-radius :30px;
+width:100%;
+height: 300px;
 	
+border-radius :30px;
 }
-
 aside {
 	
 	width: 100%;
@@ -189,6 +189,10 @@ h5{
 #freecontent{
 	padding: 10px;
 	
+}
+
+.simg{
+	height: 200px;
 }
 
 

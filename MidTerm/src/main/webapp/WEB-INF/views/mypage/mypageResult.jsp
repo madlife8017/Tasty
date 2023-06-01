@@ -36,18 +36,38 @@
 
 
 		<div id="main">
-		   <%
-         ArrayList<MfreeboardArticleVO> articles = new ArrayList<>();
-         articles = (ArrayList<MfreeboardArticleVO>) request.getAttribute("article");
-         for (int i = 0; i < articles.size(); i++) {
-         %>
-         <div class="boxbox" data-bs-toggle="modal" data-userid="${login.userId}"
-            data-fanum="<%=articles.get(i).getFreeboardArticleNumber()%>" data-bs-target="#myModal">
-            <%=articles.get(i).getContent()%>
-         </div>
-         <%
-         }
-         %>
+			<%
+			ArrayList<MfreeboardArticleVO> articles = new ArrayList<>();
+			articles = (ArrayList<MfreeboardArticleVO>) request.getAttribute("article");
+			ArrayList<MfreeboardImgVO> imgs = new ArrayList<>();
+			imgs = (ArrayList<MfreeboardImgVO>) request.getAttribute("img");
+
+			for (int i = 0; i < articles.size(); i++) {
+				ArrayList<MfreeboardImgVO> imgcon = new ArrayList<>();
+				for (int j = 0; j < imgs.size(); j++) {
+
+					if (articles.get(i).getFreeboardArticleNumber() == imgs.get(j).getFreeboardArticleNumber()) {
+				imgcon.add(imgs.get(j));
+			%>
+
+			<div class="boxbox" data-bs-toggle="modal" data-bs-target="#myModal">
+
+				<img
+					src="${pageContext.request.contextPath}/user/display/<%=imgcon.get(0).getFileLoca()%>
+				/<%=imgcon.get(0).getFileName()%>"
+					alt="default" id="article-img" data-userid="${login.userId}"
+					data-fanum="<%=articles.get(i).getFreeboardArticleNumber()%>">
+
+			</div>
+
+			<%
+			}
+			}
+			%>
+
+			<%
+			}
+			%>
 
 
 		</div>
@@ -131,9 +151,9 @@
 		<div class="modal-content">
 			<div class="modal-body">
 				<div class="modal-img">
-
 					<div id="carouselExampleIndicators"
 						class="carousel slide carousel-dark" data-bs-ride="true">
+
 						<div class="carousel-indicators">
 							<button type="button" data-bs-target="#carouselExampleIndicators"
 								data-bs-slide-to="0" class="active" aria-current="true"
@@ -143,6 +163,7 @@
 							<button type="button" data-bs-target="#carouselExampleIndicators"
 								data-bs-slide-to="2" aria-label="Slide 3"></button>
 						</div>
+
 						<div class="carousel-inner">
 							<div class="carousel-item active">
 								<img src="${pageContext.request.contextPath}/img/test.png"
@@ -151,12 +172,9 @@
 							<div class="carousel-item">
 								<img src="${pageContext.request.contextPath}/img/test.png"
 									class="d-block w-100 simg" alt=".xxx..">
-							</div>
-							<div class="carousel-item">
-								<img src="${pageContext.request.contextPath}/img/test.png"
-									class="d-block w-100 simg" alt="..ddd.">
-							</div>
+							</div>						
 						</div>
+
 						<button class="carousel-control-prev" type="button"
 							data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
 							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -170,7 +188,6 @@
 
 					</div>
 
-
 				</div>
 				<div class="modal-text">
 					<div id="freeuserimg">
@@ -178,33 +195,40 @@
 							src="${pageContext.request.contextPath}/user/display/${login.fileLoca}/${login.fileName}"
 							alt="default" id="profile-img2">
 						<div id="freeuserid"></div>
-
 					</div>
-
-
 					<div id="freecontent"></div>
 				</div>
 			</div>
 		</div>
-</html>
 
 <Script>
+	let str='';
 	document.getElementById('main').addEventListener('click', e => {
 
-		if (e.target.matches('.boxbox')) {
+		if (e.target.matches('.boxbox img')) {
 			const faNum = e.target.dataset.fanum;
 			const userId = e.target.dataset.userid;
+			str='';
 
 			console.log(faNum);
 			console.log(userId);
 
-			fetch('${pageContext.request.contextPath}/freeboard/getArticle/' + faNum)
+			fetch('${pageContext.request.contextPath}/freeboard/getArticle/' + faNum)					
 				.then(res => res.json())
 				.then(data => {
 					console.log(data);
 					document.getElementById('freeuserid').textContent = data.userId;
 					document.getElementById('freecontent').textContent = data.content;
 				});
+
+			const $carousel = document.getElementById('carouselExampleIndicators');
+			fetch('${pageContext.request.contextPath}/freeboard/getCarousel/' + faNum)					
+				.then(res => res.json())
+				.then(data => {
+					console.log(data);
+					
+				});
+
 
 			
 
@@ -217,4 +241,6 @@
 
 
 	});
+
+	
 </Script>

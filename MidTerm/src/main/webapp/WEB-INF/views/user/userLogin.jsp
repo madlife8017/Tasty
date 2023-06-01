@@ -306,9 +306,24 @@ h2 {
     		alert('로그인에 실패했습니다. 아이디와 비밀번호를 확인하세요.');
     	}
     	
-    	document.getElementById('loginBtn').onclick = () => {document.loginForm.submit();}
-    	
-        document.getElementById('joinBtn').onclick = () => {location.href='${pageContext.request.contextPath}/user/join';}
+    	//id, pw 입력란이 공백인 지 아닌지 확인한 후, 공백이 아니라면 submit을 진행하세요.
+    	//요청 url은 /user/userLogin -> post로 갑니다. (비동기 아니에요!)
+    	document.getElementById('loginBtn').onclick = () => {
+            if(document.getElementById('id').value === '') {
+                alert('아이디를 적어야 로그인을 하죠!');
+                return;
+            }
+            if(document.getElementById('pw').value === '') {
+                alert('비밀번호를 작성하세요!');
+                return;
+            }
+
+            document.loginForm.submit();
+        }
+
+        document.getElementById('joinBtn').onclick = () => {
+            location.href='${pageContext.request.contextPath}/user/userJoin';
+        }
     	
     
     </script>

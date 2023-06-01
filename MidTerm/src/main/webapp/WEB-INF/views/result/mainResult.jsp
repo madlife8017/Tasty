@@ -214,10 +214,10 @@
 					if (recipe.img4 !== '') {
 						document.getElementById(`img4`).setAttribute('src', recipe.img4);
 					}
+					//좋아요
+					getlike(cooknum);
+					document.getElementById('likenum').dataset.cooknum = recipe.cooknum; //like에 레시피 번호 저장
 				});
-			//좋아요
-			getlike(cooknum);
-			document.getElementById('likenum').dataset.cooknum = recipe.cooknum; //like에 레시피 번호 저장
 				
 
 		} else {
@@ -234,13 +234,14 @@
 				.then(res => res.json())
 				.then(like => {
 					console.log(like);
-					document.getElementById('likenum').textContent = like;
+					document.getElementById('likenum').textContent = '이 레시피를 ' +like + '명이 좋아합니다';
 				});
 	}
 	//좋아요 버튼 클릭
 	document.getElementById('likeBtn').addEventListener('click', e => {
 		e.preventDefault();
 		const cooknum = document.getElementById('likenum').dataset.cooknum;
+		console.log(cooknum);
 		const userId = '${login.userId}'
 		console.log(userId);
 		const reqObj = {

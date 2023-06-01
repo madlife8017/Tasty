@@ -41,8 +41,7 @@ public class MyPageController {
 		List<MfreeboardImgVO> imgList = new ArrayList<>();		
 	imgList = service.getImgList(vo.getUserId());
 		
-		log.info("eeeee"+imgList.toString());		
-		
+		log.info("eeeee"+imgList.toString());				
 		
 		model.addAttribute("article",articleList);
 		model.addAttribute("img",imgList);

@@ -18,7 +18,7 @@ public class DBservice {
 	@Autowired
 	private IUserMapper mapper;	
 	
-	private String requestUri = "http://openapi.foodsafetykorea.go.kr/api/ff44efcb27354095b86b/COOKRCP01/json/1/100";
+	private String requestUri = "http://openapi.foodsafetykorea.go.kr/api/ff44efcb27354095b86b/COOKRCP01/json/1/500";
 	
 	public void getDB() {
 		RestTemplate template = new RestTemplate();

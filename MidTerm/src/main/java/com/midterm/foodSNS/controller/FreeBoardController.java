@@ -2,8 +2,11 @@ package com.midterm.foodSNS.controller;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,9 +39,7 @@ public class FreeBoardController {
 	@PostMapping("/regist")
 	public String profile(@RequestParam("file")List<MultipartFile> file,MfreeboardArticleVO avo,MfreeboardImgVO ivo) {	
 		service.registArticle(avo);
-		service.registImg(ivo,file);
-		
-		
+		service.registImg(ivo,file);		
 		return "redirect:/mypage/mypageResult";
 	}
 	
@@ -52,11 +53,33 @@ public class FreeBoardController {
 	@ResponseBody
 	@GetMapping("/getCarousel/{faNum}")
 	public List<MfreeboardImgVO> getCarousel(@PathVariable int faNum){
-		log.info("eee"+faNum);
-		log.info("dddd"+service.getCarousel(faNum).toString());
-		
 		return 	service.getCarousel(faNum);
 	}
+	
+	@ResponseBody
+	@DeleteMapping("/delete/{faNum}")
+	public void delete(@PathVariable int faNum){
+		 service.delete(faNum);		 
+	}
+	
+	@ResponseBody
+	@DeleteMapping("/modifyImgDelete/{iNum}")
+	public void deleteimg(@PathVariable int iNum){
+		 service.deleteimg(iNum);		 
+	}
+	
+
+	@GetMapping("/modify/{faNum}")
+	public String modify(@PathVariable int faNum, Model model){
+		MfreeboardArticleVO avo = service.getArticle(faNum);
+		List<MfreeboardImgVO> ivo = service.getCarousel(faNum);
+		model.addAttribute("avo",avo);
+		model.addAttribute("ivo",ivo);
+		
+		 return "freeboard/modify";
+	}
+	
+	
 	
 	
 

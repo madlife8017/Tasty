@@ -1,0 +1,10 @@
+@charset "UTF-8";
+.fileDiv{
+	flex-wrap: wrap;
+}
+
+#fileImg{
+	width: 100px;
+	height: 100px;
+
+}

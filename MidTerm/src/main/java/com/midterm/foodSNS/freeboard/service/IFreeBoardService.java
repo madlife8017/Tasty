@@ -21,19 +21,15 @@ public interface IFreeBoardService {
 	
 	MfreeboardArticleVO getArticle(int faNum);
 	
-	//총 게시물 수 구하기
-	int getTotal(PageVO vo);
-	
-	//상세보기
-	MfreeboardArticleVO getContent(int bno);	
-	
-	//수정
-	void update(MfreeboardArticleVO vo);
+
+
 	
 	//삭제
-	void delete(int bno);
+	void delete(int fanNum);
 
 	List<MfreeboardImgVO> getCarousel(int faNum);
+	
+	void deleteimg(int iNum);
 	
 	
 }

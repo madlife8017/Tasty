@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.imgCont{
+	width: 100%;
+	display : flex;
+	   flex-wrap: wrap;
+	
+}
+.imgCon{
+	
+	width : 200px;
+	height : 200px;
+}
+img{
+	width : 100%;
+	height : 200px;
+}

@@ -10,17 +10,30 @@
 	</select>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+	<select id="recipeDetail" resultType="recipe">
+		SELECT * FROM cookDB
+		WHERE cooknum = #{cooknum}
+	</select>
+	
+	<select id="getLike" resultType="int">
+		SELECT COUNT(*) FROM likeDB
+		WHERE cooknum = #{cooknum}
+	</select>
+	
+	<select id="chkLike" resultType="int">
+		SELECT COUNT(*) FROM likeDB
+		WHERE cooknum = #{cooknum} AND user_id = #{userId}
+	</select>
+	
+	<insert id="insertLike">
+		INSERT INTO likeDB
+		(cooknum, user_id)
+		VALUES (#{cooknum}, #{userId})
+	</insert>
+	
+	<delete id="deleteLike">
+		DELETE FROM likeDB
+		WHERE cooknum = #{cooknum} AND user_id = #{userId}
+	</delete>
 
 </mapper>

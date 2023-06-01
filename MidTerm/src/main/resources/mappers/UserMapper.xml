@@ -20,12 +20,12 @@
 
 	<insert id="join">
 		INSERT INTO Musers
-		(user_id, user_pw, user_phone1,
-		user_phone2, user_email1,
+		(user_id, user_pw, user_name, user_phone1,
+		user_email1,
 		user_email2, addr_basic, addr_detail,
 		addr_zip_num)
-		VALUES(#{userId}, #{userPw}, #{userPhone1},
-		#{userPhone2}, #{userEmail1},
+		VALUES(#{userId}, #{userPw}, #{userName}, #{userPhone1},
+		#{userEmail1},
 		#{userEmail2}, #{addrBasic},
 		#{addrDetail}, #{addrZipNum})
 	</insert>
@@ -45,7 +45,6 @@
 	<select id="getInfo" resultMap="userMap">
 		SELECT
 		user_name, user_phone1,
-		user_phone2,
 		user_email1, user_email2, addr_basic,
 		addr_detail,
 		addr_zip_num,
@@ -112,7 +111,7 @@
 	<update id="updateMusers">
         UPDATE Musers
         SET user_name = #{userName}, user_pw = #{userPw}, user_phone1 = #{userPhone1},
-        user_phone2 = #{userPhone2}, user_email1 = #{userEmail1}, user_email2 = #{userEmail2},
+        user_email1 = #{userEmail1}, user_email2 = #{userEmail2},
         addr_basic = #{addrBasic}, addr_detail = #{addrDetail}, addr_zip_num = #{addrZipNum}
         WHERE user_id = #{userId}
     </update>

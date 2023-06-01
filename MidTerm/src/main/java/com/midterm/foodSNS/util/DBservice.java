@@ -5,6 +5,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
 import com.midterm.foodSNS.user.mapper.IUserMapper;
 import com.midterm.foodSNS.util.MDBVO.COOKRCP01.Row;
 

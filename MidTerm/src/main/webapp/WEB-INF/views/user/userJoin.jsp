@@ -16,10 +16,8 @@
 					<form action="${pageContext.request.contextPath}/user/userJoin"
 						method="post" name="joinForm">
 						<div class="form-group">
-							<!--사용자클래스선언-->
 							<label for="id">아이디</label>
 							<div class="input-group">
-								<!--input2탭의 input-addon을 가져온다 -->
 								<input type="text" name="userId" class="form-control"
 									id="userId" placeholder="아이디를 (영문포함 4~12자 이상)">
 								<div class="input-group-addon">
@@ -38,7 +36,7 @@
 							<!--자바스크립트에서 추가-->
 						</div>
 						<div class="form-group">
-							<label for="password-confrim">비밀번호 확인</label> <input
+							<label for="password-confirm">비밀번호 확인</label> <input
 								type="password" class="form-control" id="pwConfirm"
 								placeholder="비밀번호를 확인해주세요."> <span id="msgPw-c"></span>
 							<!--자바스크립트에서 추가-->
@@ -66,14 +64,15 @@
 							<label for="email">이메일</label><br>
 							<div class="input-group">
 								<input type="text" name="userEmail1" class="form-control"
-									id="userEmail1" placeholder="이메일"> <select
+									id="userEmail1" placeholder="이메일"> 
+									<select
 									name="userEmail2" class="form-control" id="userEmail2">
 									<option>@naver.com</option>
 									<option>@daum.net</option>
 									<option>@gmail.com</option>
 									<option>@hanmail.com</option>
 									<option>@yahoo.co.kr</option>
-								</select>
+									</select>
 								<div class="input-group-addon">
 									<button type="button" id="mail-check-btn"
 										class="btn btn-primary">이메일 인증</button>

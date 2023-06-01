@@ -304,7 +304,7 @@ button {
         }
 
         document.getElementById('joinBtn').onclick = () => {
-            location.href='${pageContext.request.contextPath}/user/join';
+            location.href='${pageContext.request.contextPath}/user/userJoin';
         }
     	
     

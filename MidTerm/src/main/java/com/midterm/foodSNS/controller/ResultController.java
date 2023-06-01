@@ -68,8 +68,8 @@ public class ResultController {
 	@GetMapping("/recipe/like/{cooknum}")
 	@ResponseBody
 	public int getLike(@PathVariable int cooknum) {
-		log.info("레시피 번호: "+cooknum);
-		log.info("좋아요 수" + service.getLike(cooknum));
+
+
 		return service.getLike(cooknum);
 	}
 	

@@ -128,8 +128,15 @@ public class FreeBoardService implements IFreeBoardService {
 	@Override
 	public void uploadRecipe(MfreeboardVO vo) {
 		mapper.uploadRecipe(vo);
-		
 	}
+	
+	@Override
+	public List<MfreeboardVO> getArticleList(String userId) {
+		
+		return mapper.getArticleList(userId);
+	}
+	
+	
 
 
 

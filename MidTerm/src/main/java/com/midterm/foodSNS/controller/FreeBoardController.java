@@ -1,6 +1,10 @@
 package com.midterm.foodSNS.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +22,9 @@ import org.springframework.web.multipart.MultipartFile;
 import com.midterm.foodSNS.command.MfreeboardArticleVO;
 import com.midterm.foodSNS.command.MfreeboardImgVO;
 import com.midterm.foodSNS.command.MfreeboardVO;
+import com.midterm.foodSNS.command.MusersVO;
 import com.midterm.foodSNS.freeboard.service.IFreeBoardService;
+import com.midterm.foodSNS.util.PageVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -80,19 +86,33 @@ public class FreeBoardController {
 		 return "freeboard/modify";
 	}
 	
-	@GetMapping("uploadRecipe")
+	//레시피 등록 페이지로
+	@GetMapping("/uploadRecipe")
 	public void uploadRecipe() {}
 	
-	@PostMapping("uploadRecipe")
+	//레시피 글 등록
+	@PostMapping("/uploadRecipe")
 	public String uploadRecipe(MfreeboardVO vo) {
 		service.uploadRecipe(vo);
 		
-		return "freeboard/recipeList";
+		return "redirect:recipeList";
 	}
 	
-	
-	
-	
-	
+	//레시피 글 목록
+	@GetMapping("/recipeList")
+	public String recipeList(HttpServletRequest request, Model model) {	
+			HttpSession session = request.getSession();
+			MusersVO vo = (MusersVO) session.getAttribute("login");
+			log.info("vo: " + vo);
+			log.info("session: " + session);
+			
+			List<MfreeboardVO> articleList = new ArrayList<>();		
+			articleList = service.getArticleList(vo.getUserId());
+			
+			log.info("articleList: " + articleList);			
+			
+			model.addAttribute("article",articleList);
+			return "/freeboard/recipeList2";	
+		}
 
 }

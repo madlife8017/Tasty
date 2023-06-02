@@ -34,6 +34,9 @@ public interface IFreeBoardService {
 
 	//레시피 등록
 	void uploadRecipe(MfreeboardVO vo);
+
+	//레시피 가져오기
+	List<MfreeboardVO> getArticleList(String userId);
 	
 	
 }

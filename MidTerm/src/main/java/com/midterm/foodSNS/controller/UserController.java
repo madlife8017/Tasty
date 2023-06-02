@@ -246,28 +246,6 @@ public class UserController {
 		return service.userInfo(userId);		
 	}
 	
-	@GetMapping("/test")
-	public void test() {}
-	
-	@PostMapping("/test")
-	public String test(MfreeboardVO vo) {
-		log.info("content" +  vo.getContent());
-		service.test(vo);
-		return "redirect:/mypage/mypageResult";
-	}
-	
-	@GetMapping("/test/{page}")
-	@ResponseBody()
-	public List<MfreeboardVO> getList (@PathVariable int page) {
-		PageVO vo = new PageVO();
-		vo.setPageNum(page);
-		return service.getList(vo);
-	}
-		
-	
-	
-	
-	
 }
 
 

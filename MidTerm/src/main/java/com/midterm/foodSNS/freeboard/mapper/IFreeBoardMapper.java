@@ -5,6 +5,7 @@ import java.util.List;
 import com.midterm.foodSNS.command.MfreeboardArticleVO;
 import com.midterm.foodSNS.command.MfreeboardImgVO;
 import com.midterm.foodSNS.command.MfreeboardVO;
+import com.midterm.foodSNS.util.PageVO;
 
 public interface IFreeBoardMapper {
 	
@@ -27,6 +28,9 @@ public interface IFreeBoardMapper {
 
 	//레시피 등록
 	void uploadRecipe(MfreeboardVO vo);
+
+	//레시피 가져오기
+	List<MfreeboardVO> getArticleList(String userId);
 
 
 }

@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>Summernote with Bootstrap 4</title>
+    <title>레시피 등록</title>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
@@ -18,8 +18,8 @@
   </head>
   <body>
   <div id="container">
-    <form action="${pageContext.request.contextPath}/user/test" method="post">
-      <input type="hidden" name="writer" value="${userInfo.userId}">
+    <form action="${pageContext.request.contextPath}/freeboard/uploadRecipe" method="post">
+      <input type="hidden" name="writer" value="${login.userId}">
 
       <div class="form-group">
         <label for="title">제목</label>
@@ -37,12 +37,11 @@
   
     <script>
       $('#summernote').summernote({
-        placeholder: 'Hello Bootstrap 4',
+        placeholder: '레시피 내용을 작성하세요',
         tabsize: 2,
-        height: 100
+        height: 400
       });
-      
-      
+
     </script>
   </body>
 </html>

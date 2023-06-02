@@ -39,8 +39,9 @@
 		VALUES (#{title}, #{content}, #{writer})
 	</insert>
 	
-	<select id="getListRecipe" resultType="board">
+	<select id="getArticleList" resultType="board">
 		SELECT * FROM test
+		WHERE writer = #{userId}
 		ORDER BY bno DESC
 	</select>
 	

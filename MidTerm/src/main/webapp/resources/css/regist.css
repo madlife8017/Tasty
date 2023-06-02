@@ -1,10 +1,31 @@
 @charset "UTF-8";
-.fileDiv{
+
+.fileDiv {
 	flex-wrap: wrap;
 }
 
-#fileImg{
+#fileImg {
 	width: 100px;
 	height: 100px;
+}
 
+.container {
+	width: 40%;
+	margin: 0 auto;
+	margin-top : 150px;
+	border: 1px solid red;
+}
+
+#attr_area {
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 150px;
+	padding: 10px;
+	border: 1px dotted #00f;
+}
+
+#attr_area:empty::before {
+	content: attr(data-placeholder);
+	color: #999;
+	font-size: .9em;
 }

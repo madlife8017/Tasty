@@ -1,64 +1,115 @@
 @charset "UTF-8";
 
-#main-con{
+
+/* linkone */
+.link-1 div:before, .link-1 div:after {
+  content: '';
+  border-bottom: solid 1px white;
+  position: absolute;
+  bottom: 0;
+  width: 0;
+}
+
+.link-1 div:before { left: 0; }
+.link-1 div:after { right: 0; }
+
+.link-1 div:hover:before, .link-1 div:hover:after {
+  width: 50%;
+}
+
+.link-1 div:before, .link-1 div:after {
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+#main-con {
 	box-sizing: border-box;
 	width: 100%;
 	height: 85vh;
 	margin-top: 80px;
-	
-	display: flex;	
+	display: flex;
 	flex-direction: row;
-
 }
-#main-left{
+
+#main-left {
 	box-sizing: border-box;
-	flex-grow: 1;
+	width: 25%;
 	height: 85vh;
 	border-right: 1px solid gainsboro;
-
+	padding: 20px;
+	padding-top: 40px;
 }
-#main{
+
+
+
+.left {
+	width: 100%; box-sizing : border-box;
+	text-align: right;
+	font-size: 40px;
+	margin-bottom: 20px;	
 	box-sizing: border-box;
-	flex-basis: 1200px;
+}
+
+#main {
+	box-sizing: border-box;
+	width: 50%;
 	height: 85vh;
-	
-	display : flex;
+	display: flex;
 	flex-wrap: wrap;
 	overflow: scroll;
-		
-}
-#main::-webkit-scrollbar {
-    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+	justify-content: space-evenly;
 }
 
-#main-right{
+#main::-webkit-scrollbar {
+	display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+
+#main-right {
 	box-sizing: border-box;
-	flex-grow: 1;
+	width: 25%;
 	height: 85vh;
 	border-left: 1px solid gainsboro;
-
+	
 }
-
 
 .boxbox{
 	box-sizing: border-box;
 	color : red;
-	width : 33.3%;
+	width : 32%;
 	height: 300px;	
-	border: 1px solid red;
+	margin-top : 10px;
+	margin-bottom : 10px;	
 	border-radius :30px;
 	
 }
 
 .boxbox img{
 	
-width:100%;
-height: 300px;
+	width:100%;
+	border-radius :30px;
+	height: 300px;
 	
-border-radius :30px;
 }
-aside {
+
+.scale {
+	transform: scale(1);
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transition: all 0.3s ease-in-out; /* 부드러운 모션을 위해 추가*/
+  }
+  .scale:hover {
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	 z-index: 999;
 	
+  }
+
+aside {
 	width: 100%;
 	height: 93vh;
 	box-sizing: border-box;
@@ -66,7 +117,7 @@ aside {
 	border: 1px solid green;
 }
 
-.offcanvas-header{
+.offcanvas-header {
 	padding-top: 30px;
 }
 
@@ -92,8 +143,8 @@ aside {
 	height: 190px;
 	border-radius: 50%;
 	position: absolute;
-	top: 50%;
-	left: 50%;
+	top: 60%;
+	left: 38%;
 	transform: translate(-50%, -50%);
 }
 
@@ -107,53 +158,67 @@ aside {
 	position: relative;
 }
 
-#promodify {	
+#promodify {
 	width: 100px;
 	height: 30px;
 	font-size: 15px;
 	text-align: center;
 	line-height: 30px;
-
 	color: black;
 	text-decoration: none;
 	cursor: pointer;
-	border-radius:5px;
+	border-radius: 5px;
 	background: gainsboro;
 	box-sizing: border-box;
-	position:absolute;
-	top:55px;
+	position: absolute;
+	top: 55px;
 	left: 200px;
 }
 
-h5{
+#follow {
+	width: 100px;
+	height: 30px;
+	font-size: 15px;
+	text-align: center;
+	line-height: 30px;
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+	border-radius: 5px;
+	background: blue;
+	box-sizing: border-box;
+	position: absolute;
+	top: 55px;
+	left: 200px;
+	cursor: pointer;
+}
+
+h5 {
 	color: darkgrey;
 }
-.modal-body{
+
+.modal-body {
 	box-sizing: border-box;
 	width: 100%;
-	height:900px;
+	height: 900px;
 	border: 1px solid red;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 }
 
-.modal-img{
+.modal-img {
 	box-sizing: border-box;
 	width: 65%;
 	height: 850px;
-	
-	 display: flex;
-  
-  /*위에서 아래로 수직 배치*/
-  flex-direction: column;
-  
-  /*중앙정렬*/
-  justify-content: center;
-	
+	display: flex;
+	/*위에서 아래로 수직 배치*/
+	flex-direction: column;
+	/*중앙정렬*/
+	justify-content: center;
 }
 
-.modal-text{
+.modal-text {
 	box-sizing: border-box;
 	width: 30%;
 	height: 850px;
@@ -162,50 +227,94 @@ h5{
 	margin-left: 10px;
 }
 
-#profile-img2{
+#profile-img2 {
 	box-sizing: border-box;
 	width: 80px;
 	height: 80px;
 	border-radius: 50%;
-	margin-top :10px;
-	margin-left :20px;
-	
+	margin-top: 10px;
+	margin-left: 20px;
 	padding: 10px;
-	
 }
 
-#freeuserimg{
-	display :flex;
+#freeuserimg {
+	display: flex;
 	width: 100%;
 	height: 100px;
 	border-bottom: 1px solid gainsboro;
 }
 
-#freeuserid{
+#freeuserid {
 	padding-top: 35px;
 	width: 55%;
-	font-size: 30px;	
+	font-size: 30px;
 }
 
-#freecontent{
+#freecontent {
 	width: 100%;
 	box-sizing: border-box;
 	width: 100%;
-	height: 500px;
-	padding: 20px;	
+	height: 350px;
+	padding: 20px;
 	border: 1px solid green;
 }
+.modibox{
+	display: none;
+	
 
-.simg{
+}
+
+.modibox textarea{
+	width: 100%;
+	box-sizing: border-box;
+	border-radius :30px;
+	width: 100%;
+	height: 60vh;
+	padding: 20px;	
+	resize: none;
+	margin-bottom: 10px;
+}
+
+.simg {
 	height: 800px;
+}
+
+#dbtn {
+	width: 20%;
+	padding-top: 38px;
+}
+
+.modibox button{
+	width: 100%;
+
 	
 }
-
-
-#dbtn{
-	width: 20%;
-	padding-top : 38px;
-
+.likeBox{
+	width: 100%;
+	height: 60px;
+	border: 1px solid blue;
 }
 
+.replyBox{
+	width: 100%;
+	height: 300px;
+	border: 1px solid red;
+}
 
+#unfollow{
+	width: 100px;
+	height: 30px;
+	font-size: 15px;
+	text-align: center;
+	line-height: 30px;
+	color: blue;
+	text-decoration: none;
+	cursor: pointer;
+	border-radius: 5px;
+	background: gainsboro;
+	box-sizing: border-box;
+	position: absolute;
+	top: 55px;
+	left: 200px;
+	cursor: pointer;
+}

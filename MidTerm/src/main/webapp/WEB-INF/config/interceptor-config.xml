@@ -22,14 +22,25 @@
 	
 		
 		
-		<!-- 로그인 권한 체크 인터셉터 url 매핑 
+		<!-- 로그인 권한 체크 인터셉터 url 매핑  -->
 		<mvc:interceptor>
 			<mvc:mapping path="/freeboard/regist" />
 			<mvc:mapping path="/user/userMypage" />
-			<mvc:mapping path="/freeboard/content/**" />
+			<mvc:mapping path="/result/mainResult"/>
+			
+			
+			<!-- <mvc:mapping path="/user/userProfileModify"/>
+			<mvc:mapping path="/user/userUpdate"/>
+			<mvc:mapping path="/user/userDelete"/>
+			<mvc:mapping path="/freeboard/modify"/>
+			<mvc:mapping path="/freeboard/regist"/>
+			<mvc:mapping path="/freeboard/mypageResult"/>
+			<mvc:mapping path="/freeboard/myRecipe"/>
+			<mvc:mapping path="/freeboard/home"/> 
+			<mvc:mapping path="/result/mainResult"/> 
+			 <mvc:mapping path="/freeboard/content/**" />-->
 			<ref bean="userAuth" />
 		</mvc:interceptor>
-		-->
 	
 	 </mvc:interceptors> 
 

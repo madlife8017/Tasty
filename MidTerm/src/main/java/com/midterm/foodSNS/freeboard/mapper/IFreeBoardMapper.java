@@ -1,6 +1,7 @@
 package com.midterm.foodSNS.freeboard.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.midterm.foodSNS.command.MfreeboardArticleVO;
 import com.midterm.foodSNS.command.MfreeboardImgVO;
@@ -26,11 +27,15 @@ public interface IFreeBoardMapper {
 
 	void deleteimg(int iNum);
 
+
 	//레시피 등록
 	void uploadRecipe(MfreeboardVO vo);
 
 	//레시피 가져오기
 	List<MfreeboardVO> getArticleList(String userId);
+
+	void update(Map<String, Object> map);
+
 
 
 }

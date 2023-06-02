@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.midterm.foodSNS.command.LikeVO;
 import com.midterm.foodSNS.command.MRecipeVO;
 import com.midterm.foodSNS.command.MSearchConditionVO;
+import com.midterm.foodSNS.command.MusersVO;
 import com.midterm.foodSNS.result.service.IResultService;
 import com.midterm.foodSNS.util.DBservice;
 
@@ -46,6 +47,8 @@ public class ResultController {
 		return "result/mainResult";		
 	}
 	
+
+	
 	@GetMapping("/resultDetail")
 	public String resultDetail() {
 		
@@ -56,6 +59,13 @@ public class ResultController {
 	public String getDB() {		
 		DBservice.getDB();
 		return"/home";
+		
+	}
+	@GetMapping("/getWeather")
+	public String  getWeather(Model model) {
+		model.addAttribute("weather",DBservice.getWeather()); 
+		log.info("온도" +DBservice.getWeather().get("weather") );
+		return"result/weather";
 		
 	}
 	
@@ -80,4 +90,6 @@ public class ResultController {
 		log.info(vos.toString());
 		return vos;
 	}
+	
+	
 }

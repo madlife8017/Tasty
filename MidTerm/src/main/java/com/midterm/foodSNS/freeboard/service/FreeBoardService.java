@@ -4,6 +4,7 @@ import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,8 +78,7 @@ public class FreeBoardService implements IFreeBoardService {
         }
 		
 	}
-	
-	
+		
 	
 	@Override
 	public void registArticle(MfreeboardArticleVO avo) {	
@@ -97,11 +97,7 @@ public class FreeBoardService implements IFreeBoardService {
 		
 	}
 	
-	@Override
-	public void deleteimg(int iNum) {
-		mapper.deleteimg(iNum);
-		
-	}
+
 
 	@Override
 	public List<MfreeboardImgVO> getCarousel(int faNum) {
@@ -119,9 +115,9 @@ public class FreeBoardService implements IFreeBoardService {
 
 
 
-	public void update(MfreeboardArticleVO vo) {
-
-		// TODO Auto-generated method stub
+	public void update(Map<String, Object> map) {
+	
+		mapper.update(map);
 		
 	}
 	

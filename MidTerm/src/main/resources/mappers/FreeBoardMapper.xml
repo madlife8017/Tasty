@@ -29,9 +29,11 @@
 		delete from FreeboardArticle where freeboard_article_number =#{faNum}
 	</delete>
 	
-	<delete id="deleteimg">
-		delete from FreeboardImg where freeboard_img_number =#{imgNum}
-	</delete>
+
+	
+	<update id="update" parameterType="hashMap">
+		update FreeboardArticle set content=#{content} where freeboard_article_number =#{faNum}
+	</update>
 	
 	<insert id="uploadRecipe">
 		INSERT INTO test

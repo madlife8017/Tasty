@@ -14,7 +14,41 @@
 		SELECT * FROM FreeboardImg
 	</select>
 	
+	<insert id="addFollowing" parameterType="hashMap">
+		insert into following2
+			(user_id, following_id)
+		VALUES (#{userId}, #{targetId})	
+	</insert>
 	
+	<select id="checkFollowing" resultType="int">
+	SELECT count(*) FROM following2 where user_id=#{userId} and following_id=#{targetId}	
+	</select>
+	
+	<delete id="deleteFollowing">
+	
+	DELETE FROM following2
+		where user_id=#{userId} and following_id=#{targetId}	
+	
+	</delete>
+	
+	<select id="countFollowing" resultType="user">
+	SELECT following_id FROM following2 where user_id=#{userId};
+	</select>
+	
+	<select id="countFollower" resultType="user">
+	SELECT user_id from follower where follower_id=#{userId};
+	</select>
+	
+	<insert id="addFollower" parameterType="hashMap">
+		insert into follower
+			(user_id, follower_id)
+		VALUES (#{targetId},#{userId})	
+	</insert>
+	
+	
+	
+	
+
 </mapper>
 		
 		

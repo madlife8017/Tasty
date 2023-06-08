@@ -446,6 +446,7 @@ document.getElementById('cancleBtn').addEventListener('click', e => {
 			.then(data => {	
 
 				console.log(data);	
+				
 				if(data==='0'){
 					alert('패스워드가 틀렸습니다.');
 					return;

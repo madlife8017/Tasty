@@ -96,7 +96,7 @@ footer {
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
-   z-index: 0;
+   z-index: 999;
   
 }
 
@@ -1552,10 +1552,11 @@ aside {
    padding: 40px;
    padding-left: 60px;
    position: relative;
+   font-size: 1.6vw;
 }
 
 #promodify {
-   width: 100px;
+   width: 70px;
    height: 30px;
    font-size: 15px;
    text-align: center;
@@ -1567,7 +1568,7 @@ aside {
    box-sizing: border-box;
    position: absolute;
    top: 55px;
-   left: 200px;
+   left: 210px;
    
    
 	background: #22df64;

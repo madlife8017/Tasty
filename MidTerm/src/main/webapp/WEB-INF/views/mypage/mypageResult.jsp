@@ -155,9 +155,11 @@
 			<div class="profileWrapper">
 				<div id="simpleProfile">
 					<h1>${login.userId}</h1>
-					<a href="${pageContext.request.contextPath}/user/userProfileModify" id="promodify">프로필수정</a>
+					<a href="${pageContext.request.contextPath}/user/userProfileModify" id="promodify">수정</a>
 					<h3>${login.userNick}</h3>
 					<h5>${login.message}</h5>
+				
+					<hr>
 				</div>
 				<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 					<li class="nav-item"><a class="nav-link active" aria-current="page"
@@ -1133,4 +1135,17 @@
 
 		return time;
 	}
+	
+	
+	// let simpleProfile = document.querySelector('simpleProfile');
+
+	// simpleProfile.addEventListener('click', e => {
+	// 	for(i=0; i<simpleProfile.length; i++) {
+	// 		e.style.color = 'green';
+
+	// 	}
+	// })
+	
+	
+	
 </script>

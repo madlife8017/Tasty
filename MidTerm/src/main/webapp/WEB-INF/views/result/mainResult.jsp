@@ -1277,7 +1277,7 @@ button {
 
 			<div class="container-fluid">
 				<a class="navbar-brand text-light"
-					href="${pageContext.request.contextPath}/">Tasty Friend</a>
+					href="${pageContext.request.contextPath}/">Tasty Friends</a>
 
 				<%-- <div class="ml-auto">
 							<form class="form-inline ml-auto"

@@ -468,6 +468,11 @@
 
 
 <script>
+document.getElementById('randomImg').onclick = () => {
+    document.getElementById('ranform').submit();
+}
+
+
 	let shortVideo = '';
 	let shortVbtn = '';
 	document.getElementById('profile-img-con').addEventListener('click', e => {

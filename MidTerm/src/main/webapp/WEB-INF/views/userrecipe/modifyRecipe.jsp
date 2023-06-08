@@ -45,7 +45,7 @@
 
 		<nav class="navbar bg-success fixed-top ">
 			<div class="container-fluid">
-				<a class="navbar-brand text-light" href="${pageContext.request.contextPath}/">Tasty Friend</a>
+				<a class="navbar-brand text-light" href="${pageContext.request.contextPath}/">Tasty Friends</a>
 
 
 				<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
@@ -59,9 +59,9 @@
 		</nav>
 
 	<div class="container margin-top">
-		<form action="${pageContext.request.contextPath}/userrecipe/uploadRecipe" method="post" name="uploadForm">
+		<form action="${pageContext.request.contextPath}/userrecipe/modiUploadRecipe" method="post" name="uploadForm">
 			<input type="hidden" name="writer" value="${login.userId}">
-
+			<input type="hidden" name="bno" value="${modify.bno}">
 			<div class="form-group">
 				<label for="title" class="title-style"></label> <input type="text" class="form-control" id="title"
 					placeholder="제목을 입력하세요" name="title" value=${modify.title}>
@@ -114,7 +114,7 @@
 			alert('제목을 입력해 주세요!');
 			return;
 		}
-		alert('레시피가 등록되었습니다.');
+		alert('레시피가 수정되었습니다.');
 		document.uploadForm.submit();
 	});
 </script>

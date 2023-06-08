@@ -221,7 +221,7 @@ aside {
 	text-decoration: none;
 	cursor: pointer;
 	border : 0px solid black;
-	background: blue;
+	background: darkgreen;
 	box-sizing: border-box;
 	position: absolute;
 	top: 55px;
@@ -358,7 +358,7 @@ h5 {
 	font-size: 15px;
 	text-align: center;
 	line-height: 20px;
-	color: blue;
+	color: darkgreen;
 	text-decoration: none;
 	cursor: pointer;
 	border : 0px solid black;

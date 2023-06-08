@@ -1564,14 +1564,11 @@ aside {
    text-decoration: none;
    cursor: pointer;
    border-radius: 5px;
-   background: gainsboro;
+   background: darkgreen;
    box-sizing: border-box;
    position: absolute;
    top: 55px;
    left: 210px;
-   
-   
-	background: #22df64;
 	color: white;
 }
 

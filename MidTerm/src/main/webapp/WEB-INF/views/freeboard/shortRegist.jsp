@@ -296,6 +296,9 @@
                 return;
             }
         });
+        document.getElementById('cancleBtn').addEventListener('click', () => {
+        	history.back();
+        });
     // };
 </script>
 

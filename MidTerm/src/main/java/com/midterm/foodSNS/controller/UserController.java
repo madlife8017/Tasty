@@ -61,9 +61,10 @@ public class UserController {
 
 	// 회원 탈퇴 요청
 	@PostMapping("/userDelete")
-	public String userDelete(MusersVO vo) {
+	public String userDelete(MusersVO vo, HttpServletRequest request) {
 
 		service.userDelete(vo);
+		request.getSession().invalidate();
 		return "redirect:/";
 		
 	}

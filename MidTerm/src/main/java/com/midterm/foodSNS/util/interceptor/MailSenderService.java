@@ -38,7 +38,7 @@ public class MailSenderService {
 		
 		authNum = makeRandomNumber();
 		
-		String setFrom = "mkoko8855@naver.com"; //여기에 각자 이메일 적으면 됩니다.
+		String setFrom = "sdj799@naver.com"; //여기에 각자 이메일 적으면 됩니다.
 		String toMail = email;
 		String title = "회원 가입 인증 이메일 입니다.";
 		String content = "홈페이지를 방문해 주셔서 감사합니다." +

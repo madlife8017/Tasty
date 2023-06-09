@@ -299,10 +299,6 @@ h2 {
 	
 }
 
-
-
-
-
 </style>
 
 
@@ -384,7 +380,7 @@ h2 {
 
 				<div class="input-group">
 					<input type="text" name="userEmail1" class="form-control"
-						id="userEmail1" required> <label for="email">이메일</label>
+						id="userEmail1" required> <label for="email" id="emailLabel">이메일</label>
 						
 					<div class="input-group-addon">
 						<button type="button" id="mail-check-btn" class="w-btn-outline w-btn-indigo-outline"
@@ -490,7 +486,9 @@ h2 {
 					document.getElementById('userId').setAttribute('readonly', true);
 					document.getElementById('idCheckBtn').setAttribute('disabled', true);
 					document.getElementById('msgId').textContent = '사용 가능한 아이디 입니다.';
+
 					document.getElementById('msgId').style.color = 'green';
+
 					const label = document.getElementById('idLabel');
 					label.parentNode.removeChild(label);
 				} else { 
@@ -540,13 +538,15 @@ h2 {
 			//이메일 인증을 더 이상 못하게 버튼 비활성
 			document.getElementById('mail-check-btn').disabled = true;
 			document.getElementById('userEmail1').setAttribute('readonly', true);
+			const label = document.getElementById('emailLabel');
+			label.parentNode.removeChild(label);
 			e.target.style.display = 'none'; //인증번호 입력창 숨기기
 			
-			const email2 = document.getElementById('userEmail2'); //요소취득
+			/* const email2 = document.getElementById('userEmail2'); //요소취득
 			email2.setAttribute('onFocus', 'this.initialSelect = this.selectedIndex'); //속성걸기
 			
 			//즉, 이벤트를 인라인방식으로 먹였는데. 사용자가 선택한 그 인덱스 값을 초기화 값으로 세팅 해주겟다 라는 뜻이다.
-			email2.setAttribute('onChange', 'this.selectedIndex = this.initialSelect');
+			email2.setAttribute('onChange', 'this.selectedIndex = this.initialSelect'); */
 		} else {   //사용자가 인증번호가 틀렸다면
 			$resultMsg.textContent = '인증번호를 입력을 제대로 해주세요';
 			$resultMsg.style.color = 'brown';
@@ -603,8 +603,10 @@ h2 {
 		var regex = /^[A-Za-z0-9+]{4,12}$/; 
 		if (regex.test(document.getElementById("userId").value)) { 
 			document.getElementById("userId").style.borderColor = "green";
+
 			document.getElementById("msgId").innerHTML = "아이디중복체크는 필수 입니다";
 			document.getElementById('msgId').style.color = 'brown';
+
 
 
 			idFlag = true;
@@ -666,16 +668,9 @@ h2 {
     	
     	if(msg === 'loginFail') {
     		alert('로그인에 실패했습니다. 아이디와 비밀번호를 확인하세요.');
-    	}
-    
-        
-        
-        
-        
-        
-        
-        
-        
+
+    	}   
+
         
     </script>
 </body>

@@ -400,7 +400,7 @@ h2 {
 
 								<div class="commit3">
 									<button class="w-btn-outline w-btn-indigo-outline class-over"
-										type="button" id="deleteBtn">삭제</button>
+										type="button" id="deleteBtn">탈퇴</button>
 								</div>
 
 								<div class="commit4">

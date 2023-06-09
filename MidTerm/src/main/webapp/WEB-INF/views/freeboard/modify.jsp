@@ -62,7 +62,7 @@
             </table>
 
             <div class="titlefoot">
-                <button class="btn" type="submit">등록</button>
+                <button class="btn" type="button">등록</button>
             </div>
         </form>
     </div>

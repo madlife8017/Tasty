@@ -188,10 +188,11 @@ aside {
 	padding: 40px;
 	padding-left: 60px;
 	position: relative;
+	font-size: 1.6vw;
 }
 
 #promodify {
-	width: 100px;
+	width: 70px;
 	height: 30px;
 	font-size: 15px;
 	text-align: center;
@@ -202,9 +203,9 @@ aside {
 	box-sizing: border-box;
 	position: absolute;
 	top: 55px;
-	left: 200px;
+	left: 210px;
 	
-	background: #22df64;
+	background: #157637;
 	color: white;
 	
 	
@@ -220,7 +221,7 @@ aside {
 	text-decoration: none;
 	cursor: pointer;
 	border : 0px solid black;
-	background: blue;
+	background: darkgreen;
 	box-sizing: border-box;
 	position: absolute;
 	top: 55px;
@@ -357,7 +358,7 @@ h5 {
 	font-size: 15px;
 	text-align: center;
 	line-height: 20px;
-	color: blue;
+	color: darkgreen;
 	text-decoration: none;
 	cursor: pointer;
 	border : 0px solid black;
@@ -452,7 +453,7 @@ h5 {
 }
 
 #random {
-	width: 20vw;
+	width: 23vw;
 	height: 45vh;
 	
 	border-radius: 15px;
@@ -504,7 +505,7 @@ h5 {
 }
 
 #replyImg {
-	width: 2vw;
+	width: 4vw;
 	height: 5vh;
 	border-radius: 50%;
 }
@@ -522,7 +523,7 @@ h5 {
 }
 
 .reply-group img {
-	width: 2vw;
+	width: 4vw;
 	height: 5vh;
 	border-radius: 50%;
 }
@@ -557,6 +558,9 @@ h5 {
 
 #replyRegist {
 	width: 100%;
+	background: #157637;
+	color: white;
+	border-color: #157637;
 }
 
 .clearfix {

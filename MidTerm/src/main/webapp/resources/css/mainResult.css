@@ -1552,10 +1552,11 @@ aside {
    padding: 40px;
    padding-left: 60px;
    position: relative;
+   font-size: 1.6vw;
 }
 
 #promodify {
-   width: 100px;
+   width: 70px;
    height: 30px;
    font-size: 15px;
    text-align: center;
@@ -1563,14 +1564,11 @@ aside {
    text-decoration: none;
    cursor: pointer;
    border-radius: 5px;
-   background: gainsboro;
+   background: darkgreen;
    box-sizing: border-box;
    position: absolute;
    top: 55px;
-   left: 200px;
-   
-   
-	background: #22df64;
+   left: 210px;
 	color: white;
 }
 

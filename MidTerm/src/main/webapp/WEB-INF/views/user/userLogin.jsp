@@ -414,7 +414,7 @@ h2 {
 				</div>
 
 
-				<button type="submit" id="JoinBtn">Sign Up</button>
+				<button type="button" id="JoinBtn">Sign Up</button>
 				<div class="signUp-link">
 					<p>
 						Already have an account? <a href="#" class="signInBtn-link">Sign In</a>
@@ -429,6 +429,9 @@ h2 {
 
 
 	<script>
+	
+	
+		
 	
 		//login&Join 화면 전환
 		const signUpBtnLink = document.querySelector('.signUpBtn-link');
@@ -455,10 +458,10 @@ h2 {
 			const userId = document.getElementById('userId').value;
 			
 			if(userId === ''){
-				alert('아이디는 필수 값 입니다.')
+				alert('아이디를 작성 해주세요.')
 				return; 
 			} if(!idFlag){
-				alert('똑바로 적어주세요');
+				alert('8자 이상 16자 이하의 영문 대문자, 소문자, 숫자만 가능합니다.');
 				return;
 			}
 			
@@ -483,12 +486,14 @@ h2 {
 					document.getElementById('userId').setAttribute('readonly', true);
 					document.getElementById('idCheckBtn').setAttribute('disabled', true);
 					document.getElementById('msgId').textContent = '사용 가능한 아이디 입니다.';
-		 			document.getElementById('msgId').style.color = 'green';
+
+					document.getElementById('msgId').style.color = 'green';
 
 					const label = document.getElementById('idLabel');
 					label.parentNode.removeChild(label);
 				} else { 
 					document.getElementById('msgId').textContent = '중복 된 아이디 입니다.';
+					/* document.getElementById('msgId').style.color = 'red'; */
 				}
 			}); 
 		
@@ -544,7 +549,7 @@ h2 {
 			email2.setAttribute('onChange', 'this.selectedIndex = this.initialSelect'); */
 		} else {   //사용자가 인증번호가 틀렸다면
 			$resultMsg.textContent = '인증번호를 입력을 제대로 해주세요';
-			$resultMsg.style.color = 'red';
+			$resultMsg.style.color = 'brown';
 			e.target.focus(); 
 		}
 		
@@ -556,7 +561,7 @@ h2 {
     	
     	if(idFlag && pwFlag){ 
         	if(!document.getElementById('userId').getAttribute('readonly')){ 
-        		alert('아이디 중복 체크는 필수 입니다.');
+        		alert('아이디 중복 체크를 해주세요!');
         		return; 
         	}
     	
@@ -589,14 +594,19 @@ h2 {
     	
     }
 		
+	/*8자 이상 16자 이하의 영문 대문자, 소문자, 숫자 및 '+' 기호로 이루어진 문자열에 일치합니다. 다른 문자가 포함되어 있거나 길이가 8자 미만 또는 16자 초과인 경우에는 일치하지 않습니다.*/
+	/*아이디 형식 검사때는 4자이상 12자이하.*/
+	
 	/*아이디 형식 검사 스크립트*/
 	var id = document.getElementById("userId");
 	id.onkeyup = function() { 
 		var regex = /^[A-Za-z0-9+]{4,12}$/; 
 		if (regex.test(document.getElementById("userId").value)) { 
 			document.getElementById("userId").style.borderColor = "green";
- 			document.getElementById("msgId").innerHTML = "아이디중복체크는 필수 입니다";
- 			document.getElementById('msgId').style.color = 'brown';
+
+			document.getElementById("msgId").innerHTML = "아이디중복체크는 필수 입니다";
+			document.getElementById('msgId').style.color = 'brown';
+
 
 
 			idFlag = true;
@@ -658,7 +668,9 @@ h2 {
     	
     	if(msg === 'loginFail') {
     		alert('로그인에 실패했습니다. 아이디와 비밀번호를 확인하세요.');
+
     	}   
+
         
     </script>
 </body>

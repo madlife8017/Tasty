@@ -48,7 +48,7 @@ public class UserController {
 
 	@GetMapping("/userJoin")
 	public void userJoin() {
-
+		
 	}
 
 	// 개인정보 페이지 이동
@@ -120,6 +120,8 @@ public class UserController {
 			return "ok"; // 중복이 아닐경우 "ok"를 전달
 	}
 
+	
+	
 	// 회원 가입 처리
 	@PostMapping("/userJoin")
 	public String userJoin(MusersVO vo, RedirectAttributes ra) {
@@ -128,6 +130,9 @@ public class UserController {
 		return "redirect:/user/userLogin";
 	}
 
+	
+	
+	
 	// 이메일 인증
 	@ResponseBody // 비동기
 	@GetMapping("/mailCheck")
@@ -137,6 +142,9 @@ public class UserController {
 		return mailService.joinEmail(email);
 	}
 
+	
+	
+	
 	// 로그인 페이지로 이동 요청
 	@GetMapping("/userLogin")
 	public void login(Model model, HttpSession session) {
@@ -146,6 +154,9 @@ public class UserController {
 		model.addAttribute("urlKakao", kakaoAuthUrl);
 	}
 
+	
+	
+	
 	// 로그인 성공시 콜백
 	@GetMapping("/kakao_callback")
 	public String callbackKakao(String code, String state, HttpSession session, Model model) {
@@ -185,6 +196,9 @@ public class UserController {
 		return "redirect:/";
 	}
 
+	
+	
+	
 	// 프로필수정페이지이동
 	@GetMapping("/userProfileModify")
 	public String profileModify() {
@@ -192,6 +206,9 @@ public class UserController {
 
 	}
 
+	
+	
+	
 	// 프로필수정처리
 	@PostMapping("/userProfileModify")
 	public String profile(@RequestParam("file") MultipartFile file, MusersVO vo, Model model,
@@ -203,6 +220,10 @@ public class UserController {
 		return "redirect:/mypage/mypageResult";
 	}
 
+	
+	
+	
+	
 	@GetMapping("/display/{fileLoca}/{fileName}")
 	public ResponseEntity<byte[]> getFile(@PathVariable String fileLoca, @PathVariable String fileName) {
 

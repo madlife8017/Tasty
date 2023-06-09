@@ -141,6 +141,10 @@ font-family: 'Gowun Dodum', sans-serif;
 
 					<c:if test="${login != null}">
 						<li class="nav-item text-light"><a class="nav-link"
+							href="${pageContext.request.contextPath}/mypage/mypageResult">My Page</a>
+
+						</li>
+						<li class="nav-item text-light"><a class="nav-link"
 							href="${pageContext.request.contextPath}/user/userMypage">회원정보수정</a>
 
 						</li>
@@ -188,10 +192,10 @@ font-family: 'Gowun Dodum', sans-serif;
 		</div>
 
 		<form action="${pageContext.request.contextPath}/result/mainResult"
-			method="POST">
+			method="POST" id="formRec">
 
 			<div class="selectWrapper">
-				<select name="weather" class="form-select optionbox"
+				<select id ="name" name="weather" class="form-select optionbox"
 					aria-label="Default select example">
 					<option value="날씨" disabled selected>날씨</option>
 					<option value="맑음">맑음</option>
@@ -199,7 +203,7 @@ font-family: 'Gowun Dodum', sans-serif;
 					<option value="비">비</option>
 
 					<option id="todayWeather"></option>
-				</select> <select name="condition" class="form-select optionbox"
+				</select> <select name="condition" id ="condition" class="form-select optionbox"
 					aria-label="Default select example">
 
 					<option value="상태" disabled selected>상태</option>
@@ -207,7 +211,7 @@ font-family: 'Gowun Dodum', sans-serif;
 					<option value="다이어트중">다이어트중</option>
 					<option value="술마시고싶어요">술마시고싶어요</option>
 
-				</select> <select name="feeling" class="form-select optionbox"
+				</select> <select name="feeling" id ="feeling" class="form-select optionbox"
 					aria-label="Default select example">
 					<option value="기분" disabled selected>기분</option>
 					<option value="신나요">신나요</option>
@@ -215,7 +219,7 @@ font-family: 'Gowun Dodum', sans-serif;
 					<option value="피곤해요">피곤해요</option>
 					<option value="특별한날">특별한날</option>
 				</select>
-				<button type="submit" id="recipe" class="btn btn-success">레시피
+				<button type="button" id="recipe" class="btn btn-success">레시피
 					추천!</button>
 			</div>
 
@@ -232,6 +236,29 @@ font-family: 'Gowun Dodum', sans-serif;
 </body>
 
 <script type="text/javascript">
+	document.getElementById('recipe').addEventListener('click', e => {
+
+		if(document.getElementById('name').value=="날씨"){
+			alert('날씨를 설정해주세요!');
+			return;
+		} 
+		if(document.getElementById('condition').value=="상태"){
+			alert('상태를 설정해주세요!');
+			return;
+		}
+		if(document.getElementById('feeling').value=="기분"){
+			alert('기분을 설정해주세요!');
+			return;
+		}
+
+		document.getElementById('formRec').submit();
+		
+
+
+
+	});
+
+
 	const side =document.getElementById('try').addEventListener('click', e => {
 		const side =document.getElementById('side');
 			side.style.display = "block";

@@ -1190,7 +1190,7 @@ button {
 				recipes = (ArrayList<MRecipeVO>) request.getAttribute("recipe");
 				for (int i = 0; i < recipes.size(); i++) {
 				%>
-				<div class="boxbox mystorybox scale">
+				<div class="boxbox mystorybox">
 					<img class="titleimg" alt="결과이미지" data-userid="${login.userId}"
 						data-cooknum=<%=recipes.get(i).getCooknum()%>
 						src="<%=recipes.get(i).getTitleimg()%>">
